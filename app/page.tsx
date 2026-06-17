@@ -46,7 +46,7 @@ export default function LandingPage() {
             </h1>
 
             <p style={{ color: 'var(--muted)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '420px' }}>
-              TEN ist die exklusive Plattform, auf der ambitionierte Gründer auf erfahrene Unternehmer und Investoren treffen. Lerne, vernetze dich und wachse schneller als je zuvor.
+              TEN ist die exklusive Plattform, auf der Gründer auf erfahrene Unternehmer und Investoren treffen. Lerne, vernetze dich und wachse schneller als je zuvor.
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
@@ -347,7 +347,7 @@ export default function LandingPage() {
               <span style={{ fontStyle: 'italic', background: 'linear-gradient(135deg,var(--accent) 0%,var(--gold) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>nächste Level?</span>
             </h2>
             <p style={{ color: 'var(--muted)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '3rem' }}>
-              Tritt der Community bei, die ambitionierte Gründer und Investoren verbindet.
+              Tritt der Community bei, die Gründer und Investoren verbindet.
               Kostenlos. Jetzt.
             </p>
             <Link href="/auth" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '1.1rem 3rem', background: 'linear-gradient(135deg,var(--accent),var(--accent-2))', color: '#07080A', borderRadius: '4px', fontWeight: 700, fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase', boxShadow: '0 8px 40px rgba(200,151,58,0.45)' }}>
