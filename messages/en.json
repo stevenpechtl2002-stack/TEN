@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "feed": "Feed",
+    "communities": "Communities",
+    "qa": "Q&A",
+    "investors": "Investors",
+    "chat": "Messages",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Sign out"
+  },
+  "auth": {
+    "login": "Sign in",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or",
+    "noAccount": "No account yet? Register",
+    "hasAccount": "Already a member? Sign in",
+    "tagline": "The platform for entrepreneurs"
+  },
+  "feed": {
+    "title": "Feed",
+    "placeholder": "What's on your mind?",
+    "post": "Post"
+  },
+  "communities": {
+    "title": "Communities",
+    "create": "Create community",
+    "join": "Join",
+    "leave": "Leave"
+  },
+  "qa": {
+    "title": "Q&A",
+    "askQuestion": "Ask a question",
+    "answer": "Answer"
+  },
+  "investors": {
+    "title": "Investor Area",
+    "submitPitch": "Submit pitch",
+    "applyToInvestor": "Apply"
+  },
+  "chat": {
+    "title": "Messages",
+    "placeholder": "Write a message..."
+  }
+}

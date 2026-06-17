@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "feed": "Feed",
+    "communities": "Communities",
+    "qa": "Fragen & Antworten",
+    "investors": "Investoren",
+    "chat": "Nachrichten",
+    "profile": "Profil",
+    "settings": "Einstellungen",
+    "logout": "Abmelden"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "continueWithGoogle": "Mit Google fortfahren",
+    "or": "oder",
+    "noAccount": "Noch kein Konto? Registrieren",
+    "hasAccount": "Bereits Mitglied? Anmelden",
+    "tagline": "Die Plattform für Unternehmer"
+  },
+  "feed": {
+    "title": "Feed",
+    "placeholder": "Was denkst du gerade?",
+    "post": "Posten"
+  },
+  "communities": {
+    "title": "Communities",
+    "create": "Community erstellen",
+    "join": "Beitreten",
+    "leave": "Verlassen"
+  },
+  "qa": {
+    "title": "Fragen & Antworten",
+    "askQuestion": "Frage stellen",
+    "answer": "Antworten"
+  },
+  "investors": {
+    "title": "Investor-Bereich",
+    "submitPitch": "Projekt einreichen",
+    "applyToInvestor": "Bewerben"
+  },
+  "chat": {
+    "title": "Nachrichten",
+    "placeholder": "Nachricht schreiben..."
+  }
+}
