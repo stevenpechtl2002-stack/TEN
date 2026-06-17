@@ -9,11 +9,6 @@ export default function LandingPage() {
         <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 700, letterSpacing: '0.1em', color: '#0D0D0D' }}>
           TEN<span style={{ color: '#C8973A' }}>·</span>
         </div>
-        <nav style={{ display: 'flex', gap: '3rem' }}>
-          {['Feed', 'Q&A', 'Investoren'].map(l => (
-            <Link key={l} href={`/${l.toLowerCase()}`} style={{ fontSize: '0.82rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#666', fontWeight: 500 }}>{l}</Link>
-          ))}
-        </nav>
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
           <Link href="/auth" style={{ fontSize: '0.82rem', color: '#666', padding: '0.5rem 1rem', fontWeight: 500 }}>Anmelden</Link>
           <Link href="/auth" style={{ fontSize: '0.8rem', fontWeight: 700, padding: '0.65rem 1.75rem', background: 'linear-gradient(135deg,#C8973A,#E2AD50)', color: '#fff', borderRadius: '6px', letterSpacing: '0.05em', textTransform: 'uppercase', boxShadow: '0 4px 20px rgba(200,151,58,0.4)' }}>
