@@ -1,32 +1,31 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-
 :root {
-  /* Core palette */
-  --bg:        #08080A;
-  --surface:   #111116;
-  --surface-2: #18181F;
-  --border:    #1E1E2A;
-  --border-2:  #2A2A38;
+  /* Core palette — Luxury Dark */
+  --bg:        #07080A;
+  --surface:   #0E0F14;
+  --surface-2: #161820;
+  --border:    #1C1E28;
+  --border-2:  #262836;
 
   /* Text */
-  --text:      #F2F2F6;
-  --muted:     #6E6E82;
-  --faint:     #3A3A4A;
+  --text:      #F0F0F5;
+  --muted:     #636378;
+  --faint:     #32333F;
 
-  /* Accent */
-  --accent:    #FF6B35;
-  --accent-2:  #FF8C5A;
-  --gold:      #F5C842;
+  /* Accent — Champagne Gold */
+  --accent:    #C8973A;
+  --accent-2:  #E2AD50;
+  --gold:      #F5D47A;
+  --glow:      rgba(200,151,58,0.18);
 
   /* Semantic */
   --success:   #22C55E;
   --error:     #EF4444;
 
-  /* Fonts */
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'Plus Jakarta Sans', sans-serif;
+  /* Fonts (loaded via next/font in layout.tsx) */
+  --font-display: var(--font-cormorant), 'Georgia', serif;
+  --font-body:    var(--font-jakarta), 'system-ui', sans-serif;
 
   /* Radius */
   --radius-sm: 6px;
@@ -40,106 +39,68 @@
   --font-sans: var(--font-body);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  height: 100%;
-}
+html { height: 100%; }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
 }
 
-/* Noise overlay for depth */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-}
-
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
 
 /* Typography */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   line-height: 1.15;
 }
 
-/* shadcn variable overrides for dark theme */
+/* Links */
+a { color: inherit; text-decoration: none; }
+
+/* Buttons */
+button { cursor: pointer; }
+
+/* Input focus */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(200,151,58,0.25);
+}
+
+/* shadcn overrides */
 :root {
-  --background: 222 14% 4%;
-  --foreground: 240 5% 95%;
-  --card: 240 8% 7%;
-  --card-foreground: 240 5% 95%;
-  --popover: 240 8% 8%;
-  --popover-foreground: 240 5% 95%;
-  --primary: 20 100% 60%;
+  --background: 225 15% 4%;
+  --foreground: 240 5% 94%;
+  --card: 228 14% 7%;
+  --card-foreground: 240 5% 94%;
+  --popover: 228 14% 7%;
+  --popover-foreground: 240 5% 94%;
+  --primary: 37 58% 51%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 240 6% 13%;
-  --secondary-foreground: 240 5% 75%;
-  --muted: 240 6% 13%;
-  --muted-foreground: 240 5% 50%;
-  --accent: 240 6% 16%;
-  --accent-foreground: 240 5% 95%;
+  --secondary: 228 12% 12%;
+  --secondary-foreground: 240 5% 70%;
+  --muted: 228 12% 12%;
+  --muted-foreground: 240 5% 45%;
+  --accent: 228 12% 14%;
+  --accent-foreground: 240 5% 94%;
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
-  --border: 240 7% 12%;
-  --input: 240 7% 12%;
-  --ring: 20 100% 60%;
+  --border: 228 10% 11%;
+  --input: 228 10% 11%;
+  --ring: 37 58% 51%;
   --radius: 0.625rem;
 }
 
-/* Utility classes */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.card:hover {
-  border-color: var(--border-2);
-}
-
-.accent-text {
-  color: var(--accent);
-}
-
-.display-font {
-  font-family: var(--font-display);
-}
-
-/* Button base override */
-button, [role="button"] {
-  cursor: pointer;
-}
-
-/* Link default */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Input focus glow */
-input:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent);
-}
+/* Utility */
+.accent-text { color: var(--accent); }

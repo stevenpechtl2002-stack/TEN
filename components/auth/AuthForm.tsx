@@ -130,13 +130,14 @@ export function AuthForm() {
 
         <button type="submit" disabled={loading} style={{
           width: '100%', padding: '0.75rem',
-          background: 'var(--accent)',
-          color: '#fff', border: 'none', borderRadius: '8px',
-          fontWeight: 700, fontSize: '0.95rem',
+          background: 'linear-gradient(135deg, var(--accent), var(--accent-2))',
+          color: '#07080A', border: 'none', borderRadius: '4px',
+          fontWeight: 700, fontSize: '0.82rem',
+          letterSpacing: '0.08em', textTransform: 'uppercase',
           cursor: loading ? 'not-allowed' : 'pointer',
           opacity: loading ? 0.7 : 1,
           fontFamily: 'var(--font-body)',
-          boxShadow: '0 2px 12px rgba(255,107,53,0.35)',
+          boxShadow: '0 2px 20px rgba(200,151,58,0.3)',
           transition: 'opacity 0.2s',
         }}>
           {loading ? 'Lädt...' : mode === 'login' ? 'Anmelden' : 'Registrieren'}
