@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
 import { useRouter } from 'next/navigation'
 
 export function PostForm({ communityId }: { communityId?: string }) {
@@ -32,17 +30,42 @@ export function PostForm({ communityId }: { communityId?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3 border rounded-lg p-4 bg-card">
-      <Textarea
-        placeholder="Was denkst du gerade?"
+    <form onSubmit={handleSubmit} style={{
+      background: 'var(--surface)',
+      border: '1px solid var(--border)',
+      borderRadius: '12px',
+      padding: '1.125rem',
+      marginBottom: '0.5rem',
+    }}>
+      <textarea
         value={content}
         onChange={e => setContent(e.target.value)}
+        placeholder="Teile etwas mit der Community..."
         rows={3}
+        style={{
+          width: '100%', background: 'none', border: 'none', outline: 'none',
+          color: 'var(--text)', fontSize: '0.925rem', lineHeight: 1.7,
+          resize: 'none', fontFamily: 'var(--font-body)',
+          '::placeholder': { color: 'var(--muted)' },
+        } as React.CSSProperties}
       />
-      <div className="flex justify-end">
-        <Button type="submit" disabled={loading || !content.trim()}>
-          {loading ? 'Lädt...' : 'Posten'}
-        </Button>
+      <div style={{
+        display: 'flex', justifyContent: 'flex-end',
+        paddingTop: '0.75rem', borderTop: '1px solid var(--border)',
+        marginTop: '0.5rem',
+      }}>
+        <button type="submit" disabled={loading || !content.trim()} style={{
+          padding: '0.5rem 1.25rem',
+          background: content.trim() ? 'var(--accent)' : 'var(--surface-2)',
+          color: content.trim() ? '#fff' : 'var(--faint)',
+          border: 'none', borderRadius: '7px',
+          fontWeight: 600, fontSize: '0.875rem',
+          cursor: content.trim() ? 'pointer' : 'not-allowed',
+          transition: 'background 0.2s, color 0.2s',
+          fontFamily: 'var(--font-body)',
+        }}>
+          {loading ? 'Postet...' : 'Posten'}
+        </button>
       </div>
     </form>
   )

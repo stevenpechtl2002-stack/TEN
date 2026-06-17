@@ -5,12 +5,22 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <>
       <Navbar />
-      <div className="flex pt-16">
+      <div style={{ display: 'flex', paddingTop: '58px' }}>
         <Sidebar />
-        <main className="flex-1 md:ml-56 p-6 max-w-4xl">
+        <main style={{
+          flex: 1,
+          marginLeft: 0,
+          padding: '2rem 1.5rem',
+          maxWidth: '700px',
+        }} className="main-content">
           {children}
         </main>
       </div>
+      <style>{`
+        @media (min-width: 768px) {
+          .main-content { margin-left: 220px !important; }
+        }
+      `}</style>
     </>
   )
 }

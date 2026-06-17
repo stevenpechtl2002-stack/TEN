@@ -1,26 +1,145 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core palette */
+  --bg:        #08080A;
+  --surface:   #111116;
+  --surface-2: #18181F;
+  --border:    #1E1E2A;
+  --border-2:  #2A2A38;
+
+  /* Text */
+  --text:      #F2F2F6;
+  --muted:     #6E6E82;
+  --faint:     #3A3A4A;
+
+  /* Accent */
+  --accent:    #FF6B35;
+  --accent-2:  #FF8C5A;
+  --gold:      #F5C842;
+
+  /* Semantic */
+  --success:   #22C55E;
+  --error:     #EF4444;
+
+  /* Fonts */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius:    10px;
+  --radius-lg: 16px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+/* Noise overlay for depth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* shadcn variable overrides for dark theme */
+:root {
+  --background: 222 14% 4%;
+  --foreground: 240 5% 95%;
+  --card: 240 8% 7%;
+  --card-foreground: 240 5% 95%;
+  --popover: 240 8% 8%;
+  --popover-foreground: 240 5% 95%;
+  --primary: 20 100% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 6% 13%;
+  --secondary-foreground: 240 5% 75%;
+  --muted: 240 6% 13%;
+  --muted-foreground: 240 5% 50%;
+  --accent: 240 6% 16%;
+  --accent-foreground: 240 5% 95%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 7% 12%;
+  --input: 240 7% 12%;
+  --ring: 20 100% 60%;
+  --radius: 0.625rem;
+}
+
+/* Utility classes */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card:hover {
+  border-color: var(--border-2);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.display-font {
+  font-family: var(--font-display);
+}
+
+/* Button base override */
+button, [role="button"] {
+  cursor: pointer;
+}
+
+/* Link default */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Input focus glow */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent);
 }
