@@ -28,7 +28,7 @@ export default function LandingPage() {
 
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem,5.5vw,5.75rem)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '1.75rem', color: '#0D0D0D' }}>
             Wo Gründer<br />
-            auf Investoren<br />
+            auf Gründer<br />
             <span style={{ background: 'linear-gradient(135deg,#C8973A,#E2AD50)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontStyle: 'italic' }}>treffen.</span>
           </h1>
 
