@@ -26,21 +26,6 @@ export async function proxy(request: NextRequest) {
     }
   )
 
-  const { data: { user } } = await supabase.auth.getUser()
-
-  const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
-  const isPublicPage = ['/', '/investors', '/qa'].some(p =>
-    request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(p + '/')
-  )
-
-  if (!user && !isAuthPage && !isPublicPage) {
-    return NextResponse.redirect(new URL('/auth', request.url))
-  }
-
-  if (user && (isAuthPage || request.nextUrl.pathname === '/')) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
-  }
-
   return supabaseResponse
 }
 

@@ -119,9 +119,8 @@ export default function Landing() {
           TEN<span style={{ color: GOLD }}>·</span>
         </div>
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-          <Link href="/auth" className="lnk" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: MUTED, padding: '0.5rem 1rem' }}>Anmelden</Link>
-          <Link href="/auth" className="btn-g" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, padding: '0.7rem 1.75rem', background: `linear-gradient(135deg,${GOLD},${GOLD2})`, color: '#07080A', borderRadius: '3px', boxShadow: `0 4px 20px rgba(184,134,42,0.25)`, display: 'inline-block' }}>
-            Kostenlos starten
+          <Link href="/dashboard" className="btn-g" style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, padding: '0.7rem 1.75rem', background: `linear-gradient(135deg,${GOLD},${GOLD2})`, color: '#07080A', borderRadius: '3px', boxShadow: `0 4px 20px rgba(184,134,42,0.25)`, display: 'inline-block' }}>
+            Weiter →
           </Link>
         </div>
       </header>
@@ -170,7 +169,7 @@ export default function Landing() {
           </p>
 
           <div style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.8s ease 0.7s', display: 'flex', gap: '0.875rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
-            <Link href="/auth" className="btn-g" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.95rem 2.25rem', background: `linear-gradient(135deg,${GOLD},${GOLD2})`, color: '#07080A', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: '3px', boxShadow: `0 6px 28px rgba(184,134,42,0.35)` }}>
+            <Link href="/dashboard" className="btn-g" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.95rem 2.25rem', background: `linear-gradient(135deg,${GOLD},${GOLD2})`, color: '#07080A', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: '3px', boxShadow: `0 6px 28px rgba(184,134,42,0.35)` }}>
               Kostenlos beitreten →
             </Link>
             <Link href="/qa" className="btn-o" style={{ display: 'inline-flex', alignItems: 'center', padding: '0.95rem 1.5rem', border: `1px solid ${BORDER2}`, color: MUTED, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', borderRadius: '3px', background: 'transparent' }}>
@@ -531,7 +530,7 @@ export default function Landing() {
             <p style={{ color: MUTED, fontSize: '1rem', lineHeight: 1.8, maxWidth: '500px', margin: '0 auto 3rem' }}>
               Die Plattform die Gründer, Experten und Investoren verbindet — strukturiert, professionell, kostenlos.
             </p>
-            <Link href="/auth" className="btn-g" style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', padding: '1.15rem 3.25rem', background: `linear-gradient(135deg,${GOLD},${GOLD2})`, color: '#07080A', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', borderRadius: '3px', boxShadow: `0 0 60px rgba(184,134,42,0.25)` }}>
+            <Link href="/dashboard" className="btn-g" style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', padding: '1.15rem 3.25rem', background: `linear-gradient(135deg,${GOLD},${GOLD2})`, color: '#07080A', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', borderRadius: '3px', boxShadow: `0 0 60px rgba(184,134,42,0.25)` }}>
               Kostenlos Mitglied werden →
             </Link>
             <div style={{ marginTop: '2.5rem', display: 'flex', gap: '2.5rem', justifyContent: 'center' }}>
