@@ -8,12 +8,12 @@ import {
 export const dynamic = 'force-dynamic'
 
 const QA_ROOMS = [
-  { slug: 'gruendung', label: 'Gründung & Recht', icon: '⚖', desc: 'GmbH, UG, Verträge' },
-  { slug: 'marketing', label: 'Marketing & Sales', icon: '📊', desc: 'SEO, Ads, Vertrieb' },
-  { slug: 'finanzen', label: 'Finanzen & Steuern', icon: '💰', desc: 'Buchhaltung, Funding' },
-  { slug: 'hr', label: 'HR & Team', icon: '👥', desc: 'Recruiting, Kultur' },
+  { slug: 'gruendung', label: 'Gründung', icon: '⚖', desc: 'GmbH, UG, Verträge' },
+  { slug: 'steuern-finanzen', label: 'Steuern & Finanzen', icon: '💰', desc: 'Buchhaltung, Funding' },
+  { slug: 'marketing', label: 'Marketing', icon: '📊', desc: 'SEO, Ads, Vertrieb' },
+  { slug: 'recht', label: 'Recht', icon: '📋', desc: 'Verträge, IP, Compliance' },
+  { slug: 'team-hr', label: 'Team & HR', icon: '👥', desc: 'Recruiting, Kultur' },
   { slug: 'technologie', label: 'Technologie', icon: '⚙', desc: 'Stack, APIs, Infra' },
-  { slug: 'wachstum', label: 'Wachstum', icon: '📈', desc: 'PMF, Skalierung' },
 ]
 
 export default async function DashboardPage() {
@@ -31,8 +31,8 @@ export default async function DashboardPage() {
       .order('created_at', { ascending: false })
       .limit(5),
     supabase
-      .from('questions')
-      .select('id, title, room, created_at, author:profiles!author_id(username), answers(id)')
+      .from('qa_questions')
+      .select('id, title, created_at, qa_rooms(slug, name), author:profiles!author_id(username), qa_answers(id)')
       .order('created_at', { ascending: false })
       .limit(5),
   ])
@@ -192,16 +192,17 @@ export default async function DashboardPage() {
                 </div>
               )}
               {questions.map((q: any) => {
-                const room = QA_ROOMS.find(r => r.slug === q.room)
+                const roomData = Array.isArray(q.qa_rooms) ? q.qa_rooms[0] : q.qa_rooms
+                const roomMeta = QA_ROOMS.find(r => r.slug === roomData?.slug)
                 const ago = timeAgo(q.created_at)
                 return (
-                  <Link key={q.id} href={`/qa/${q.room}/${q.id}`} style={{ background: SURF, padding: '1rem 1.25rem', display: 'block', textDecoration: 'none' }} className="post-row">
+                  <Link key={q.id} href={`/qa/${roomData?.slug ?? ''}/${q.id}`} style={{ background: SURF, padding: '1rem 1.25rem', display: 'block', textDecoration: 'none' }} className="post-row">
                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '5px', flexWrap: 'wrap' }}>
-                          {room && (
+                          {roomData && (
                             <span style={{ fontFamily: MONO, fontSize: '0.58rem', color: ACCENT, background: `var(--accent)18`, border: `1px solid var(--accent)33`, padding: '1px 7px', borderRadius: '2px' }}>
-                              {room.icon} {room.label}
+                              {roomMeta?.icon} {roomData.name}
                             </span>
                           )}
                           <span style={{ fontFamily: MONO, fontSize: '0.58rem', color: MUTED }}>{ago}</span>
@@ -210,7 +211,7 @@ export default async function DashboardPage() {
                         <div style={{ fontFamily: MONO, fontSize: '0.6rem', color: MUTED, marginTop: '5px' }}>von @{q.author?.username}</div>
                       </div>
                       <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: MUTED, lineHeight: 1 }}>{q.answers?.length ?? 0}</div>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: MUTED, lineHeight: 1 }}>{q.qa_answers?.length ?? 0}</div>
                         <div style={{ fontFamily: MONO, fontSize: '0.55rem', color: MUTED, opacity: 0.6 }}>Antworten</div>
                       </div>
                     </div>
