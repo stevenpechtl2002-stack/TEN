@@ -1,6 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import {
   Home, MessageSquare, TrendingUp, MessageCircle, Users,
   ArrowRight, Plus, Zap, BookOpen,
@@ -20,10 +19,11 @@ const QA_ROOMS = [
 export default async function DashboardPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/auth')
 
-  const [profileRes, postsRes, questionsRes, chatsRes] = await Promise.all([
-    supabase.from('profiles').select('username, full_name, avatar_url').eq('id', user.id).single(),
+  const [profileRes, postsRes, questionsRes] = await Promise.all([
+    user
+      ? supabase.from('profiles').select('username, full_name, avatar_url').eq('id', user.id).single()
+      : Promise.resolve({ data: null }),
     supabase
       .from('posts')
       .select('id, content, created_at, author:profiles!author_id(username, full_name, avatar_url), post_likes(user_id), post_comments(id)')
@@ -35,11 +35,6 @@ export default async function DashboardPage() {
       .select('id, title, room, created_at, author:profiles!author_id(username), answers(id)')
       .order('created_at', { ascending: false })
       .limit(5),
-    supabase
-      .from('conversations')
-      .select('id')
-      .or(`participant1_id.eq.${user.id},participant2_id.eq.${user.id}`)
-      .limit(1),
   ])
 
   const profile = profileRes.data
