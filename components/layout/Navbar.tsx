@@ -10,11 +10,17 @@ async function signOut() {
 }
 
 export async function Navbar() {
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  const { data: profile } = user
-    ? await supabase.from('profiles').select('username, avatar_url, full_name').eq('id', user.id).single()
-    : { data: null }
+  let user = null
+  let profile = null
+  try {
+    const supabase = await createClient()
+    const res = await supabase.auth.getUser()
+    user = res.data.user
+    if (user) {
+      const profileRes = await supabase.from('profiles').select('username, avatar_url, full_name').eq('id', user.id).single()
+      profile = profileRes.data
+    }
+  } catch {}
 
   const initials = profile
     ? (profile.full_name ?? profile.username ?? '?').slice(0, 2).toUpperCase()
