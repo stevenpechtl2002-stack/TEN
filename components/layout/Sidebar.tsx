@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, Users, MessageSquare, TrendingUp, MessageCircle } from 'lucide-react'
+import { LayoutDashboard, Home, Users, MessageSquare, TrendingUp, MessageCircle } from 'lucide-react'
 
 const navItems = [
+  { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { href: '/feed', icon: Home, label: 'Feed' },
   { href: '/communities', icon: Users, label: 'Communities' },
   { href: '/qa', icon: MessageSquare, label: 'Fragen & Antworten' },

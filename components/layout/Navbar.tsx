@@ -29,7 +29,7 @@ export async function Navbar() {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '0 1.5rem',
     }}>
-      <Link href="/feed" style={{
+      <Link href="/dashboard" style={{
         fontFamily: 'var(--font-display)', fontWeight: 800,
         fontSize: '1.3rem', letterSpacing: '-0.03em', color: 'var(--text)',
       }}>
